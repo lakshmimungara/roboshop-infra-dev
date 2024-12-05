@@ -52,8 +52,7 @@ resource "aws_lb_listener" "https" {
 module "records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
 
-  zone_name = var.zone_name #daws81s.online
-  records = [
+  zone_name = var.zone_name #daws81s.fun
     {
       name    = "roboshop-${var.environment}" 
       type    = "A"
@@ -96,7 +95,7 @@ resource "aws_lb_listener_rule" "frontend" {
 
   condition {
     host_header {
-      values = ["roboshop-${var.environment}.${var.zone_name}"] #roboshop-dev.daws81s.online
+      values = ["roboshop-${var.environment}.${var.zone_name}"] #roboshop-dev.daws81s.fun
     }
   }
 }
